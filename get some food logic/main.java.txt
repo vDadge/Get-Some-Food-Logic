@@ -1,0 +1,442 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaSwings;
+
+/**
+ *
+ * @author Vivek
+ */
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+/**
+ *
+ * @author Vivek
+ */
+public class GetSomeFoodLogic { 
+
+     
+   static JFrame jf=new JFrame("order page");
+  // ImageIcon image=new ImageIcon("C:\\Users\\Vivek\\Desktop\\New folder\\home-background-image.png");
+   static JTextField l1=new JTextField();
+  static JTextField l3=new JTextField();
+   
+    public  GetSomeFoodLogic()
+    { 
+        
+         JFrame jframe=new JFrame();
+          jframe.setLayout(null);
+         
+   JButton login=new JButton("login");
+         login.setBounds(150,200, 100, 20);
+         
+       JLabel jl=new JLabel("PLEASE ENTER THE LOGIN DETAILS");
+       jl.setBounds(100, 30, 250, 20);
+       jframe.add(jl);
+       
+       JTextField jt=new JTextField();
+       jt.setBounds(100, 70, 250, 20);
+       jframe.add(jt);
+           
+       JLabel j=new JLabel("USER ID");
+       j.setBounds(100, 50, 250, 20);
+       jframe.add(j);
+       
+      
+       
+        JPasswordField j2=new JPasswordField();
+          j2.setBounds(100, 130, 250, 20);
+          jframe.add(j2);
+          
+          JLabel j3=new JLabel("PASSWORD");
+       j3.setBounds(100, 110, 250, 20);
+       jframe.add(j3);
+             
+         jframe.add(login );
+         
+          
+         
+       JLabel jjj=new JLabel();
+         jjj.setBounds(20, 250, 400, 20);
+         jframe.add(jjj);
+         
+           JButton bb=new JButton("view");
+         bb.setBounds(350, 130, 70, 20);
+         jframe.add(bb);
+         
+         bb.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 char[] vieww=j2.getPassword();
+              String sss = String.valueOf(vieww);
+                jjj.setText(sss);
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
+         });
+         
+        
+         
+        
+         
+         
+         login.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+              
+             String userid=jt.getText();
+             char[] pass=j2.getPassword();
+              String ssss = String.valueOf(pass);
+             if(userid.equals("vivek@gmail.com") && ssss.equals("12345")  )
+             {
+                  
+                 JOptionPane.showMessageDialog(null,"logged in success" , "professional", JOptionPane. CLOSED_OPTION);
+               //  JFrame jf=new JFrame(" new page ");
+                 
+               //  jf.setIconImage(image);
+               
+                 jf.setLayout(null);
+                 jf.setVisible(true);
+                 jf.setSize(700, 700);
+                 
+                  JButton order=new JButton("order");
+               
+                 order.setBounds(450, 450,100, 30);
+                 order.setBackground(Color.WHITE);
+                 order.setForeground(Color.red);
+                 
+                 
+                 jf.add(order);
+                 
+                 order.addActionListener(new ActionListener() {
+                     @Override
+                     public void actionPerformed(ActionEvent e) {
+                         
+                         
+                         
+                         
+                         
+                        String n11= l1.getText();
+                        String n111=l3.getText();
+                        
+                         if(n11.equals(n111) && n111.equals(n11))
+                         {
+                              
+                             JOptionPane.showMessageDialog(null,"please enter the adress and pincode" , "error", JOptionPane.OK_OPTION);
+                         }
+                         else
+                         {
+                             JOptionPane.showMessageDialog(null,"your order is placed" , "professional", JOptionPane. CLOSED_OPTION);
+                              JOptionPane.showMessageDialog(null ,"vist again" , "thank you for order", JOptionPane.PLAIN_MESSAGE);
+                         }
+                         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                     }
+                 });
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(null,"logged in failed" , "professional", JOptionPane.OK_OPTION);
+             }
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
+         });
+          
+        // jbutton.setBackground(Color.yellow);
+        
+       
+       
+        jframe.setSize(600,600);
+          
+        jframe.setTitle("login page");
+        
+       
+       jframe.setVisible(true);
+       jframe.setDefaultCloseOperation(jframe.EXIT_ON_CLOSE);
+        
+   }
+   static class NewPage
+    {
+        public NewPage()
+        {
+             
+                //first page of the after login 
+                   
+             //for lable meals  
+            JLabel meal=new JLabel("MEALS");
+              meal.setBounds(50, 20, 100, 30);
+              jf.add(meal);
+              
+              //for label snacks
+               JLabel snack=new JLabel("SNACKS");
+              snack.setBounds(200, 20, 100, 30);
+              jf.add(snack);
+              
+              //for label tiffin
+              JLabel tiff=new JLabel("TIFFIN");
+              tiff.setBounds(350, 20, 100, 30);
+              jf.add(tiff);
+            
+            
+            
+            String meals[]={"null","south meal","north meal","mini meal" };
+            String snacks[]={"null","vada pav","pav bhaji","coffie","tea","sev puri","samosa" };
+            String tiffin[]={"null","Dosa","puri","idly","pongal","pulav"};
+            
+            //for meals box
+                JComboBox box1=new JComboBox(meals);
+               box1.setBounds(50, 50, 130, 30);
+                jf.add(box1);
+                
+                //for snacks box
+                JComboBox box2=new JComboBox(snacks);
+               box2.setBounds(200, 50, 130, 30);
+                jf.add(box2);
+                
+                
+                //for tiffin box
+                JComboBox box3=new JComboBox(tiffin);
+               box3.setBounds(350, 50, 130, 30);
+                jf.add(box3);
+                
+                 
+               
+               //cartlabels values
+               
+               JLabel c1=new JLabel();
+               c1.setBounds(50, 340, 550, 100);
+                jf.add(c1);
+                
+                JLabel c2=new JLabel();
+               c2.setBounds(50, 360, 550, 100);
+                jf.add(c2);
+                
+                  JLabel c3=new JLabel();
+               c3.setBounds(50, 380, 550, 100);
+                jf.add(c3);
+                
+                   JLabel cash1=new JLabel();
+               cash1.setBounds(200, 340, 550, 100);
+                jf.add(cash1);
+                
+                JLabel cash2=new JLabel();
+               cash2.setBounds(200, 360, 550, 100);
+                jf.add(cash2);
+                
+                  JLabel cash3=new JLabel();
+               cash3.setBounds(200, 380, 550, 100);
+                jf.add(cash3);
+                
+           //button add cart
+           JButton addcart=new JButton("ADD CART");
+           addcart.setBounds(450, 300, 100, 30);
+           jf.add(addcart);
+           
+           //adress fiels
+           
+           //Area for cart
+              // JTextArea adress =new JTextArea();
+               // adress.setBounds(50,180,300,150);
+               // adress.setVisible(true);
+                
+              
+                        
+              //  jf.add(adress);
+                
+                JLabel loc=new JLabel("ADRESS");
+               loc.setBounds(55, 190, 70, 25);
+                jf.add(loc);
+                
+                JLabel loc1=new JLabel("LAND MARK");
+               loc1.setBounds(55, 220, 70, 25);
+                jf.add(loc1);
+                
+                JLabel loc3=new JLabel("PINCODE");
+               loc3.setBounds(55, 250, 70, 25);
+                jf.add(loc3);
+                
+                //text fields for adress
+                
+                // JTextField l1=new JTextField(null);
+                     l1.setBounds(140, 190, 300, 25);
+                     jf.add(l1);
+                     
+                     JTextField l2=new JTextField(null);
+                     l2.setBounds(140, 220, 300, 25);
+                     jf.add(l2);
+                     
+                   //  JTextField l3=new JTextField(null);
+                     l3.setBounds(140, 250, 300, 25);
+                     jf.add(l3);
+                     
+                     
+                     //roadio button
+                     
+                     JRadioButton r1= new JRadioButton("cash on delivery");
+                     r1.setBounds(90, 550, 200, 30);
+                     jf.add(r1);
+                     
+                     
+                     JRadioButton r2= new JRadioButton("online payment");
+                     r2.setBounds(90, 580, 200, 30);
+                     jf.add(r2);
+                     
+                     ButtonGroup bg=new ButtonGroup();
+                     bg.add(r1);
+                     bg.add(r2);
+                     
+                             
+           
+           
+           
+           addcart.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                        
+                {
+                    
+                    String k1 = (String) (box1.getItemAt(box1.getSelectedIndex()));
+                    String k2 = (String) (box2.getItemAt(box2.getSelectedIndex()));
+                    String k3 = (String) (box3.getItemAt(box3.getSelectedIndex()));
+                    
+                    c1.setText(k1);
+                    
+                    c2.setText(k2);
+                    
+                    c3.setText(k3);
+                    
+                    
+                    //billing
+                   String bill=k1;
+                    switch(bill)
+                 
+                  {
+                        case "north meal":
+                            cash1.setText("100");
+                             break;
+                        case "south meal":
+                            cash1.setText("100");
+                             break;
+                        case "mini meal":
+                            cash1.setText("50");
+                             break;
+                        case "null":
+                            cash1.setText("0");
+                  }
+                    String snacksBill=k2;
+                    switch(snacksBill)
+                 
+                  {
+                        case "null":
+                            cash2.setText("0");
+                            break;
+                        case "vada pav":
+                            cash2.setText("30");
+                            break;
+                        case "pav bhaji":
+                            cash2.setText("70");
+                             break;
+                        case "sev puri":
+                            cash2.setText("50");
+                             break;
+                        case "coffie":
+                            cash2.setText("10");
+                             break;
+                        case "tea":
+                            cash2.setText("10");
+                             break;
+                        case "samosa":
+                            cash2.setText("20");
+                             
+                            
+                  }
+                    
+                     String tiffinBill=k3;
+                    switch(tiffinBill)
+                 
+                  {
+                        case "null":
+                            cash3.setText("0");
+                             break;
+                        case "Dosa":
+                            cash3.setText("80");
+                             break;
+                        case "puri":
+                            cash3.setText("50");
+                             break;
+                        case "idly":
+                            cash3.setText("30");
+                             break;
+                        case "pongal":
+                            cash3.setText("40");
+                             break;
+                        case "pulav":
+                            cash3.setText("60");
+                        
+                            
+                  }
+                    
+                    JButton total=new JButton("Total");
+                    total.setBounds(40, 450, 70, 25);
+                    jf.add(total);
+                    
+                    JTextField tot=new JTextField(null);
+                     tot.setBounds(150, 450, 150, 25);
+                     jf.add(tot);
+                     
+                     
+                     
+                     
+                    total.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            String i1=cash1.getText();
+                            String i2=cash2.getText();
+                            String i3=cash3.getText();
+                            
+                            int a1=Integer.parseInt(i1);
+                             int a2=Integer.parseInt(i2);
+                              int a3=Integer.parseInt(i3);
+                              
+                              int roundoff=(a1+a2+a3);
+                             String k5= Integer.toString(roundoff);
+                              
+                              tot.setText(k5);
+                              
+                              
+                          throw new UnsupportedOperationException("Not supported yet.");//To change body of generated methods, choose Tools | Templates.
+                        }
+                    });
+                    
+                   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                }
+            });
+           
+                
+                
+        }
+    }
+    public static void main(String args[])
+    {
+       GetSomeFoodLogic ll=new GetSomeFoodLogic(); 
+       
+       NewPage nn=new NewPage();
+    }
+    
+}
+
+ 
+    
+
